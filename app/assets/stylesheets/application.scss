@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+
+  .left-pane {
+    display: grid;
+    grid-column: 1/2;
+    background-color: #213246;
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      .name_and_image {
+        display: flex;
+        justify-content: space-between;
+        i {
+          padding: 0.7em;
+        }
+        p {
+          font-family: Poppins, sans-serif;
+          padding: 0.5em;
+          color: white;
+        }
+      }
+    }
+    .page-links {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .main-pane {
+    display: grid;
+    grid-column: 2/-1;
+
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #56abec;
+    height: 40px;
+    h3 {
+      font-family: 'Marck Script', cursive;
+      color: white;
+    }
+  }
+}

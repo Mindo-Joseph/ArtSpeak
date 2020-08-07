@@ -7,9 +7,27 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   </head>
-
+  
   <body>
+    <aside class="left-pane">
+      <div class="profile-details">
+        <div class="name_and_image">
+          <i class="fas fa-user-circle fa-2x"></i>
+          <p>Joseph Ndirangu </p>
+        </div>
+      </div>
+      <div class="page-links">
+      </div>
+    </aside>
+    <main class="main-pane">
+      <header class="header">
+        <h3>ArtSpeak</h3>
+      </header>
+    </main>
     <%= yield %>
   </body>
 </html>
+<script src="https://kit.fontawesome.com/bbab150638.js" crossorigin="anonymous"></script>
