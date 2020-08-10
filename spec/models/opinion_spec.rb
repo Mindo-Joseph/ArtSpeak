@@ -19,7 +19,7 @@ RSpec.describe Opinion, type: :model do
     it 'is Invalid if more than 280 characters' do
       user.save
       opinion.user = user
-      opinion.text = 'a'*281
+      opinion.text = 'a' * 281
       expect(opinion).to_not be_valid
     end
   end
