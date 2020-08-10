@@ -10,22 +10,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   </head>
+  <header class="header">
+      <h3>ArtSpeak</h3>
+  </header>
   
   <body>
     <aside class="left-pane">
+
       <div class="profile-details">
+
         <div class="name_and_image">
           <i class="fas fa-user-circle fa-2x"></i>
           <p>Joseph Ndirangu </p>
         </div>
+
+        <div class="followers-section">
+
+          <div class="following">
+            <h3>182</h3>
+            <h6>Following</h6>
+          </div>
+
+          <div class="followers">
+            <h3>182</h3>
+            <h6>Followers</h6>
+          </div>
+
+        </div>
       </div>
+
       <div class="page-links">
+        <ul>
+          <li>Home</li>
+          <li>Connect</li>
+          <li>Discover</li>
+        </ul>
       </div>
+
     </aside>
     <main class="main-pane">
-      <header class="header">
-        <h3>ArtSpeak</h3>
-      </header>
+      
+      <article class="tweets-article">
+      Joe
+      </article>
+        
+      <article class="who-to-follow">
+
+      </article>
     </main>
     <%= yield %>
   </body>

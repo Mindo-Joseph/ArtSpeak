@@ -16,11 +16,16 @@
 body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-
+  grid-template-rows: 60px auto;
+  header {
+    display: grid;
+    grid-column: 2/-1;
+    grid-row: 1/2;
+  }
   .left-pane {
     display: grid;
     grid-column: 1/2;
+    grid-row: 1/-1;
     background-color: #213246;
 
     .profile-details {
@@ -29,6 +34,7 @@ body {
       .name_and_image {
         display: flex;
         justify-content: space-between;
+        border-bottom: 3px;
         i {
           padding: 0.7em;
         }
@@ -38,16 +44,49 @@ body {
           color: white;
         }
       }
+      .followers-section {
+        display: flex;
+        padding: 1em;
+        .following, .followers {
+          display: flex;
+          flex-direction: column;
+          font-family: Poppins, sans-serif;
+          color: white;
+          text-align: center;
+          margin-right: 0.5em;
+        }
+      }
     }
     .page-links {
       display: flex;
-      flex-direction: column;
+      flex-direction: column; 
+      padding-top: 4em;
+      ul {
+        li {
+          padding-left: 1em;
+          font-family: Poppins, sans-serif;
+          color: white;
+          padding-bottom: 2em;
+        }
+      }
     }
   }
 
   .main-pane {
     display: grid;
     grid-column: 2/-1;
+    grid-row: 2/-1;
+    .tweets-article {
+      display: grid;
+      grid-column: 2/5;
+      grid-row: 2/-1;
+      background-color: green($color: #000000);
+    }
+    .who-to-follow {
+      display: grid;
+    grid-column: 5/-1;
+      grid-row: 2/-1;
+    }
 
   }
   .header {
@@ -55,7 +94,8 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #56abec;
-    height: 40px;
+    width: 100%;
+  
     h3 {
       font-family: 'Marck Script', cursive;
       color: white;
