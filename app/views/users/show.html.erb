@@ -9,6 +9,18 @@
   <strong>Fullname:</strong>
   <%= @user.fullname %>
 </p>
+<p>
+  <strong>Photo:</photo><br>
+  <%= image_tag @user.photo%>
+</p>
+<p>
+  <strong>Photo:</photo><br>
+  <%= image_tag @user.photo%>
+</p>
+<p>
+  <strong>Cover:</photo><br>
+  <%= image_tag @user.coverImage%>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

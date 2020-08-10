@@ -20,7 +20,14 @@
     <%= form.label :fullname %>
     <%= form.text_field :fullname %>
   </div>
-
+  <div class="field">
+    <p>Profile photo</p>
+    <%= form.file_field :photo %>
+  </div>
+  <div class="field">
+    <p>Cover photo</p>
+    <%= form.file_field :coverImage %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

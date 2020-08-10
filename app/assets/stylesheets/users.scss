@@ -1,3 +1,13 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+form {
+    display: grid;
+    grid-column: 2/4;
+    grid-row: 2/-1;
+    div {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+    }
+}
