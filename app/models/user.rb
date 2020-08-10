@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :followers, through: :received_follows, source: :follower
 
   # This will give the array of follows that this user gave to someone else
-  has_many :given_follows, foreign_key: :FollowerId, class_name: "Following"
+  has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following'
   has_many :followings, through: :given_follows, source: :followed_user
 end

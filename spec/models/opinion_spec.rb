@@ -6,7 +6,6 @@ RSpec.describe Opinion, type: :model do
     let(:opinion) { Opinion.new(text: 'This is a great app') }
     it 'is invalid if text is empty' do
       user.save
-      p user
       opinion.user = user
       opinion.text = ''
       expect(opinion).to_not be_valid
@@ -22,5 +21,8 @@ RSpec.describe Opinion, type: :model do
       opinion.text = 'a' * 281
       expect(opinion).to_not be_valid
     end
+  end
+  context 'Associations' do
+    it { should belong_to(:user) }
   end
 end

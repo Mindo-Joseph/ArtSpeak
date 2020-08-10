@@ -11,15 +11,11 @@
 </p>
 <p>
   <strong>Photo:</photo><br>
-  <%= image_tag @user.photo%>
-</p>
-<p>
-  <strong>Photo:</photo><br>
-  <%= image_tag @user.photo%>
+  <%= image_tag (@user.photo) if @user.photo.attached?%>
 </p>
 <p>
   <strong>Cover:</photo><br>
-  <%= image_tag @user.coverImage%>
+  <%= image_tag (@user.coverImage) if @user.coverImage.attached?%>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

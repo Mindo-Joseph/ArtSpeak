@@ -41,4 +41,9 @@ RSpec.describe User, type: :model do
       expect(user1.photo.attached?).to be true
     end
   end
+  context 'Associations' do
+    it { should have_many(:opinions) }
+    it { should have_many(:followers) }
+    it { should have_many(:followings) }
+  end
 end
