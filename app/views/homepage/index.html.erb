@@ -1,44 +1,35 @@
-
- <aside class="left-pane">
-
-      <div class="profile-details">
-
-        <div class="name_and_image">
-          <i class="fas fa-user-circle fa-2x"></i>
-          <p>Joseph Ndirangu </p>
+<%= render 'shared/sidebar'%>
+<div class="row w-100 text-center text-uppercase">
+    <div class="col-8 border-right">
+        <div class="w-100 border-bottom">
+            <p>Tweets</p>
+        </div>
+        <div class="card ml-5 h-5 mt-5">
+            <div class="card-body">
+                <h5 class="card-title text-left">Tweet something </h5>
+                <%= form_with(model: @opinion, local:true) do |form|%>
+                <div class="form-group">
+                    <% form.label :opinion%>
+                    <%= form.text_field :opinion, class:"form-control w-100,",placeholder:'Compose new tweet' %>
+                </div>
+                <% end %>
+            </div>
         </div>
 
-        <div class="followers-section">
-
-          <div class="following">
-            <h3>182</h3>
-            <h6>Following</h6>
-          </div>
-
-          <div class="followers">
-            <h3>182</h3>
-            <h6>Followers</h6>
-          </div>
+        <div class="card ml-5 h-5 mt-5">
+            <div class="card-body">
+                <h5 class="card-title text-left">New tweets</h5>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-4 text-center text-uppercase">
+     <div class="w-100 border-bottom">
+            <p>who to follow</p>
+            <%= render 'shared/follow'%>
 
         </div>
-      </div>
-
-      <div class="page-links">
-        <ul>
-          <li>Home</li>
-          <li>Connect</li>
-          <li>Discover</li>
-        </ul>
-      </div>
-
-</aside>
-<main class="main-pane">
-      
-    <article class="tweets-article">
-      
-    </article>
-        
-    <article class="who-to-follow">
-
-    </article>
-</main>
+    </div>
+    
+    
+</div>
