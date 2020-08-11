@@ -2,5 +2,8 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homepage#index'
-  get 'sign-up' => 'homepage#sign_up'
+  get     '/sign-up',    to: 'users#new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 end
