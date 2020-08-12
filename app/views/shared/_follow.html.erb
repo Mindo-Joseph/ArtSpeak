@@ -1,7 +1,16 @@
 <div class="user-profiles">
-    <%= image_tag(current_user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
     <div class="name-and-handle">
-        <%= current_user.fullname%>
+        <%ids = current_user.followings.pluck(:FollowerId) %>
+        <% if ids.size == 0%>
+            <% User.all.each do |user|%>
+                <% if user.photo.attached?%>
+                <%= image_tag(user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
+                <%end%>
+                <%= user.fullname%><br>
+            <%end%>
+        <%end%>
+            
+            
         <p>Followed by</p>
     </div>
 </div>
