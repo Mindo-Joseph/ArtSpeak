@@ -1,0 +1,17 @@
+<div class="profile_image border-bottom">
+    <%= image_tag(current_user.photo, class:"rounded-circle w-25") %>
+    <div class="details text-center">
+    <%= current_user.fullname %>
+    <p>@<%= current_user.username %></p>
+    <% link_to "Follow", "#" class:"btn btn-primary"%>
+</div>
+<div class="specific-details">
+    <p>Tweets</p>
+    <p>Followers</p>
+    <p>Following</p>
+</div>
+</div>
+
+<div class="w-100 border-bottom mt-25 pt-1">
+    <p>Followed by</p>
+</div>

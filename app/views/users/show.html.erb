@@ -1,22 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
-<p>
-  <strong>Photo:</photo><br>
-  <%= image_tag (@user.photo) if @user.photo.attached?%>
-</p>
-<p>
-  <strong>Cover:</photo><br>
-  <%= image_tag (@user.coverImage) if @user.coverImage.attached?%>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= render 'shared/sidebar'%>
+<div class="row w-100 text-center text-uppercase">
+  <div class="col-8 border-right">
+    <div class="image">
+      <%= image_tag(current_user.coverImage, class:"w-100 h-50 border-bottom pb-2 pr-0") %>
+    </div>
+    <div class="w-100 border-bottom">
+      <p>Tweets</p>
+    </div>
+    <div class="card ml-5 h-5 mt-5">
+        <div class="card-body">
+          <h5 class="card-title text-left">New tweets</h5>
+                
+        </div>
+    </div>
+  </div>
+  <div class="col-4 text-center text-uppercase">
+    <div class="w-100 border-bottom">
+      <p>Profile</p>
+      <%= render "shared/profile_details"%>
+    </div>
+  </div>
+</div>

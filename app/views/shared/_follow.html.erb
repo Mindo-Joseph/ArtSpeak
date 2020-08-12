@@ -1,7 +1,7 @@
-<div>
-    <%= image_tag, class:"rounded-circle"%>
-    <div class="name-and-other">
-        <%= user.friends%>
-        <p>followed by</p>
+<div class="user-profiles">
+    <%= image_tag(current_user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
+    <div class="name-and-handle">
+        <%= current_user.fullname%>
+        <p>Followed by</p>
     </div>
-<div>
+</div>
