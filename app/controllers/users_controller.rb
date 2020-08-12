@@ -9,7 +9,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show; end
+  def show
+    @user = User.find_by(id: params[:id])
+    @opinions = @user.opinions
+  end
 
   # GET /users/new
   def new

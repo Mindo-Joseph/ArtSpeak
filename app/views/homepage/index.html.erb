@@ -19,6 +19,14 @@
         <div class="card ml-5 h-5 mt-5">
             <div class="card-body">
                 <h5 class="card-title text-left">New tweets</h5>
+                <% @opinions.each do |opinion|%>
+                    <% user = User.find_by(id: opinion.user_id)%>
+                    <div class="tweets-display-image">
+                    <%= image_tag(user.photo, class:"w-25 h-100")%>
+                    </div>
+                    <%= user.username %>
+                    <%= opinion.text %>
+                <% end %>
                 
             </div>
         </div>
