@@ -12,7 +12,7 @@
     <div class="card ml-5 h-5 mt-5">
         <div class="card-body">
           <h5 class="card-title text-left">Tweets</h5>
-         <% @opinions.each do |opinion|%>
+         <% @opinions.sort.reverse.each do |opinion|%>
             <%= opinion.text%><br>
          <% end %>
                 
