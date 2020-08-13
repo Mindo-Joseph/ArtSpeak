@@ -10,7 +10,8 @@ class OpinionsController < ApplicationController
   def create
     @opinion = current_user.opinions.new(opinion_params)
     if @opinion.save
-      redirect_to root_path, notice: 'Tweet sent'
+      flash[:success] = 'Tweet sent'
+      redirect_to root_path
     else
       render 'new', alert: 'Tweet was not sent'
 

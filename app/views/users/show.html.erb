@@ -4,7 +4,9 @@
 <div class="row w-100 text-center text-uppercase">
   <div class="col-8 border-right">
     <div class="image">
+      <% if @user.photo.attached?%>
       <%= image_tag(@user.coverImage, class:"w-100 h-50 border-bottom pb-2 pr-0") %>
+      <% end %>
       
     </div>
     <div class="w-100 border-bottom">

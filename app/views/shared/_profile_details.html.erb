@@ -1,5 +1,7 @@
 <div class="profile_image border-bottom">
+    <% if @user.photo.attached? %>
     <%= image_tag(@user.photo, class:"rounded-circle w-25") %>
+    <% end %>
     <div class="details text-center">
     <%= @user.fullname %>
     <p>@<%= @user.username %></p>

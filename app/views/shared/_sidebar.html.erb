@@ -1,11 +1,25 @@
 <div id='sidebar'>
-    <div class="sidebar-header col-3">
-        <h3>Profile Information</h3>
+    <div class="sidebar-header col-3 ">
+        <div class="side-profile-image">
+            <%= image_tag(current_user.photo, width:"70em")%>
+            <p class="username"><%= current_user.fullname %></p>
+        </div>
+        <div class="follow-statistics">
+            <div class="following-count">
+                <h3><%= current_user.followings.count %></h3>
+                <p>Following<p>
+            </div>
+            <div class="followers-count">
+                <h3><%= current_user.followers.count %></h3>
+                <p>Followers<p>
+            </div>
+        </div>
 
     </div>
     <ul class="list-unstyled components">
-        <li><%= link_to "Page 1", "#" %></li>
-        <li><%= link_to "Page 2", "#" %></li>
-        <li><%= link_to "Page 3", "#" %></li>
+        <li><%= link_to "Connect", users_path %></li>
+        <li><%= link_to "Art work", "#" %></li>
+        <li><%= link_to "Profile", edit_user_path(current_user.id) %></li>
+
     </ul>
 </div>

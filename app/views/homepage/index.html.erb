@@ -7,25 +7,18 @@
         <div class="card ml-5 h-5 mt-5">
             <div class="card-body">
                 <h5 class="card-title text-left">Tweet something </h5>
-                <%= form_with(model: @opinion, local:true) do |form|%>
-                <div class="form-group">
-                    <% form.label :opinion%>
-                    <%= form.text_field :opinion, class:"form-control w-100,",placeholder:'Compose new tweet' %>
-                </div>
-                <% end %>
+                <%= render 'shared/opinion_form'%>
             </div>
         </div>
 
         <div class="card ml-5 h-5 mt-5">
             <div class="card-body">
                 <h5 class="card-title text-left">New tweets</h5>
-                <% @opinions.sort.reverse.each do |opinion|%>
-                    <% user = User.find_by(id: opinion.user_id)%>
-                    <div class="tweets-display-image">
-                    <%= image_tag(user.photo, class:"w-25 h-100")%>
-                    </div>
-                    <%= user.username %>
-                    <%= opinion.text %>
+                <% @opinions.each do |opinion|%>
+                <div class="tweets-display card mb-3">
+                    <%= tweets_info(opinion)%>
+                </div>
+
                 <% end %>
                 
             </div>
@@ -35,7 +28,6 @@
      <div class="w-100 border-bottom">
             <p>who to follow</p>
             <%= render 'shared/follow'%>
-
         </div>
     </div>
     
