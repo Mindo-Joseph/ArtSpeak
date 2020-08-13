@@ -1,8 +1,15 @@
 <div class="user-profiles">
     <div class="name-and-handle">
-        <%ids = current_user.followings.pluck(:FollowerId) %>
+        <%ids = current_user.followings.pluck(:id) %>
         <% if ids.size == 0%>
             <% User.all.each do |user|%>
+                <% if user.photo.attached?%>
+                <%= image_tag(user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
+                <%end%>
+                <%= user.fullname%><br>
+            <%end%>
+        <% else %>
+            <%  User.where.not(id: ids).each do |user|%>
                 <% if user.photo.attached?%>
                 <%= image_tag(user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
                 <%end%>

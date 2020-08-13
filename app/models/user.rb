@@ -11,13 +11,12 @@ class User < ApplicationRecord
   # This will give the array of follows that this user gave to someone else
   has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following'
   has_many :followings, through: :given_follows, source: :followed_user
-end
 
+  def follow(user_id)
+    given_follows.create(FollowedId: user_id)
+  end
 
-def follow(user_id)
-  given_follows.create(FollowedId: user_id)
-end
-
-def unfollow(user_id)
-  given_follows.find_by(FollowedId: user_id).destroy
+  def unfollow(user_id)
+    given_follows.find_by(FollowedId: user_id).destroy
+  end
 end
