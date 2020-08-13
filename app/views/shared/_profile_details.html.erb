@@ -1,19 +1,25 @@
 <div class="profile_image border-bottom">
-    <% if @user.photo.attached? %>
-    <%= image_tag(@user.photo, class:"rounded-circle w-25") %>
-    <% end %>
+    <%= renderPhoto(@user) %>
     <div class="details text-center">
     <%= @user.fullname %>
     <p>@<%= @user.username %></p>
    
 </div>
 <div class="specific-details">
-    <p>Tweets</p>
-    <p>Followers</p>
-    <p>Following</p>
-</div>
-</div>
+        <div class="tweets-count">
+            <h6><%= tweets_count(@user)%></h6>
+            <p>Tweets</p>
+        </div>
+        <div class="following-count">
+            <h6><%= following_count(@user)%></h6>
+            <p>Following<p>
+        </div>
+        <div class="followers-count">
+            <h6><%= followers_count(@user)%></h6>
+            <p>Followers<p>
+        </div>
+    
 
-<div class="w-100 border-bottom mt-25 pt-1">
-    <p>Followed by</p>
+    
+</div>
 </div>

@@ -4,9 +4,7 @@
 <div class="row w-100 text-center text-uppercase">
   <div class="col-8 border-right">
     <div class="image">
-      <% if @user.photo.attached?%>
-      <%= image_tag(@user.coverImage, class:"w-100 h-50 border-bottom pb-2 pr-0") %>
-      <% end %>
+      <%= renderCoverImage(@user)%>
       
     </div>
     <div class="w-100 border-bottom">
@@ -15,7 +13,7 @@
     <div class="card ml-5 h-5 mt-5">
         <div class="card-body">
           <h5 class="card-title text-left">Tweets</h5>
-         <% @opinions.sort.reverse.each do |opinion|%>
+         <% @opinions.each do |opinion|%>
             <%= opinion.text%><br>
          <% end %>
                 
@@ -26,15 +24,7 @@
     <div class="w-100 border-bottom">
       <p>Profile</p>
       <%= render "shared/profile_details"%>
-       <%ids = @user.followers.pluck(:id)%>
-      <% if @user == current_user %>
-        <%= link_to "Edit Profile", edit_user_path(@user.id)%>
-      <% elsif ids.include?(current_user.id)%>
-        <%= link_to 'Unfollow', unfollow_user_path, method: 'post' %>
-      <% else %>
-         <%= link_to 'Follow', follow_user_path, method: 'post' %>
-      <% end %>
-
+      <%= relationship_action(@user)%>
     </div>
   </div>
 </div>

@@ -6,11 +6,11 @@
         </div>
         <div class="follow-statistics">
             <div class="following-count">
-                <h3><%= current_user.followings.count %></h3>
+                <h3><%= following_count(current_user)%></h3>
                 <p>Following<p>
             </div>
             <div class="followers-count">
-                <h3><%= current_user.followers.count %></h3>
+                <h3><%= followers_count(current_user)%></h3>
                 <p>Followers<p>
             </div>
         </div>

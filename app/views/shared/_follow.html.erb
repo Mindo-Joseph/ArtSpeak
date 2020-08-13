@@ -1,23 +1,11 @@
 <div class="user-profiles">
-    <div class="name-and-handle">
-        <%ids = current_user.followings.pluck(:id) %>
-        <% if ids.size == 0%>
-            <% User.all.each do |user|%>
-                <% if user.photo.attached?%>
-                <%= image_tag(user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
-                <%end%>
-                <%= user.fullname%><br>
-            <%end%>
-        <% else %>
-            <%  User.where.not(id: ids).each do |user|%>
-                <% if user.photo.attached?%>
-                <%= image_tag(user.photo, class:"w-25 h-5 rounded-circle ml-10")%>
-                <%end%>
-                <%= user.fullname%><br>
-            <%end%>
-        <%end%>
-            
-            
-        <p>Followed by</p>
+    <div class="card-body">
+
+    <div class="tweets-display card mb-3">
+        <%= who_to_follow(current_user) %>
+    </div>
+
+                
+                
     </div>
 </div>

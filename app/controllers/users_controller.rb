@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find_by(id: params[:id])
-    @opinions = @user.opinions
+    @opinions = @user.opinions.sort.reverse
   end
 
   # GET /users/new
