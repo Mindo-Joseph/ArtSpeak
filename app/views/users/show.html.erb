@@ -27,6 +27,11 @@
       <p>Profile</p>
       <%= render "shared/profile_details"%>
       <%= relationship_action(@user)%>
+      
     </div>
+    <h5>Followed by </h5>
+      <div class='who-to-follow'>
+          <%= followed_accounts(@user) %>
+      </div>
   </div>
 </div>

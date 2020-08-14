@@ -36,7 +36,7 @@ module UsersHelper
       all_users
     else
       ids = user.followings.pluck(:id)
-      User.where.not(id: ids).limit(3).each do |person|
+      User.where.not(id: ids).limit(3).sort.reverse.each do |person|
         name = "#{person.fullname} \n"
         html << image_tag(person.photo, width: '20%') if person.photo.attached?
         html << simple_format(name)
@@ -48,12 +48,21 @@ module UsersHelper
 
   def all_users
     html = ''
-    User.all.each do |user|
+    User.all.sort.reverse.each do |user|
       name = "#{user.fullname} \n"
       html << image_tag(user.photo, width: '30%') if user.photo.attached?
       html << simple_format(name)
       html << (link_to 'Unfollow', unfollow_user_path(user.id), method: 'post') if current_user.followings.pluck(:id).include?(user.id)
       html << (link_to 'Follow', follow_user_path(user.id), method: 'post') unless current_user.followings.pluck(:id).include?(user.id)
+    end
+    html.html_safe
+  end
+  def followed_accounts(user)
+    html = ''
+    user.followers.limit(3).each do |follower|
+      name = "#{user.fullname} \n"
+      html << image_tag(user.photo, width: '20%') if user.photo.attached?
+      html << simple_format(name)
     end
     html.html_safe
   end
