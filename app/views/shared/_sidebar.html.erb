@@ -1,7 +1,7 @@
 <div id='sidebar'>
     <div class="sidebar-header col-3 ">
         <div class="side-profile-image">
-            <%= image_tag(current_user.photo, width:"70em")%>
+            <%= renderPhoto(current_user)%>
             <p class="username"><%= current_user.fullname %></p>
         </div>
         <div class="follow-statistics">
