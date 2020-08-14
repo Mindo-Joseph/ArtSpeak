@@ -2,7 +2,7 @@ class FollowingsController < ApplicationController
   def follow_user
     @user = User.find_by(id: params[:id])
     if current_user.follow(@user.id)
-      flash[:notice] = 'Successfully added'
+      flash[:success] = 'Successfully followed'
       redirect_to root_path
     else
       flash[:alert] = 'Hmm couldnt follow user'
@@ -12,10 +12,10 @@ class FollowingsController < ApplicationController
   def unfollow_user
     @user = User.find_by(id: params[:id])
     if current_user.unfollow(@user.id)
-      flash[:notice] = 'Successfully added'
+      flash[:alert] = 'Unfollowed user'
       redirect_to root_path
     else
-      flash[:alert] = 'Hmm couldnt follow user'
+      flash[:alert] = 'Hmm couldnt unfollow user'
     end
   end
 end

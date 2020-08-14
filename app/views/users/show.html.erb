@@ -14,7 +14,9 @@
         <div class="card-body">
           <h5 class="card-title text-left">Tweets</h5>
          <% @opinions.each do |opinion|%>
-            <%= opinion.text%><br>
+            <div class="tweets-display card mb-3">
+              <%= tweets_info(opinion)%>
+            </div>
          <% end %>
                 
         </div>

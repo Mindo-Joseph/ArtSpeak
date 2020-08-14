@@ -16,5 +16,4 @@ module HomepageHelper
     out.collect { |detail| tags << tag.p(detail, class: 'single-tweet') }
     tags
   end
-  
 end
