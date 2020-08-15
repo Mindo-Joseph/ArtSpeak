@@ -1,3 +1,4 @@
+# disable Rails/UniqueValidationWithoutIndex
 class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 3, maximum: 20 }, uniqueness: true
   validates :fullname, presence: true
@@ -5,11 +6,11 @@ class User < ApplicationRecord
   has_one_attached :coverImage
   has_many :opinions, dependent: :destroy
   # Returns an array of follows for the given user instance
-  has_many :received_follows, foreign_key: :FollowedId, class_name: 'Following'
+  has_many :received_follows, foreign_key: :FollowedId, class_name: 'Following', dependent: :destroy
   has_many :followers, through: :received_follows, source: :follower
 
   # This will give the array of follows that this user gave to someone else
-  has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following'
+  has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following', dependent: :destroy
   has_many :followings, through: :given_follows, source: :followed_user
 
   after_commit :add_default_cover, :add_default_photo, on: %i[create update]
@@ -24,16 +25,15 @@ class User < ApplicationRecord
   private
 
   def add_default_cover
-    unless coverImage.attached?
-      coverImage.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'cover.webp')), filename: 'cover.webp', content_type: 'image/webp')
+    return if coverImage.attached?
 
-    end
+    coverImage.attach(io: File.open(Rails.root.join('app/assets/images/cover.webp')), filename: 'cover.webp', content_type: 'image/webp')
   end
 
   def add_default_photo
-    unless photo.attached?
-      photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_profile.jpg')), filename: 'default_profile.jpg', content_type: 'image/jpg')
+    return if photo.attached?
 
-    end
+    photo.attach(io: File.open(Rails.root.join('app/assets/images/default_profile.jpg')), filename: 'default_profile.jpg', content_type: 'image/jpg')
   end
 end
+# enable Rails/UniqueValidationWithoutIndex

@@ -1,13 +1,13 @@
 module UsersHelper
-  def renderCoverImage(user)
+  def render_cover_image(user)
     image_tag(user.coverImage, class: 'w-100 h-50 border-bottom pb-2 pr-0') if user.coverImage.attached?
   end
 
-  def renderPhoto(user)
+  def render_photo(user)
     image_tag(user.photo, width: '25%', height: '25%') if user.photo.attached?
   end
 
-  def renderPhotoAside(user)
+  def render_photo_aside(user)
     image_tag(user.photo, width: '60%', height: '60%') if user.photo.attached?
   end
 
@@ -35,50 +35,49 @@ module UsersHelper
   end
 
   def who_to_follow(user)
-    html = ''
-    if following_count(user) == 0
-      return all_users(user)
-    else
-      ids = user.followings.pluck(:id)
-      ids << current_user.id
-      User.where.not(id: ids).order(created_at: :desc).limit(3).each do |person|
-        name = "#{person.fullname} \n"
-        html << image_tag(person.photo, width: '20%') if person.photo.attached?
-        html << simple_format(name)
-        html << (link_to 'Follow', follow_user_path(person.id), class: 'btn btn-primary btn-md', style: 'width:100px', method: 'post')
-        html << (link_to 'View', user_path(person.id), class: 'btn btn-primary btn-md', style: 'width:100px')
-      end
+    out = []
+
+    return all_users(user) if following_count(user).zero?
+
+    ids = user.followings.pluck(:id)
+    ids << current_user.id
+    User.where.not(id: ids).order(created_at: :desc).limit(3).each do |person|
+      name = "#{person.fullname} \n"
+      out << image_tag(person.photo, width: '20%') if person.photo.attached?
+      out << simple_format(name)
+      out << (link_to 'Follow', follow_user_path(person.id), class: 'btn btn-primary btn-md', method: 'post')
+      out << (link_to 'View', user_path(person.id), class: 'btn btn-primary btn-md')
     end
 
-    html.html_safe
+    safe_join(out)
   end
 
   def all_users(user)
-    html = ''
-    User.where.not(id: user.id).order(created_at: :desc).each do |user|
-      name = "#{user.fullname} \n"
-      html << image_tag(user.photo, width: '150px', height: '150px') if user.photo.attached?
-      html << simple_format(name)
-      if current_user.followings.pluck(:id).include?(user.id)
-        html << (link_to 'Unfollow', unfollow_user_path(user.id), class: 'btn btn-danger', method: 'post')
-        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md')
+    out = []
+    User.where.not(id: user.id).order(created_at: :desc).each do |person|
+      name = "#{person.fullname} \n"
+      out << (image_tag(person.photo, width: '150px', height: '150px') if person.photo.attached?)
+      out << simple_format(name)
+      if current_user.followings.pluck(:id).include?(person.id)
+        out << (link_to 'Unfollow', unfollow_user_path(person.id), class: 'btn btn-danger', method: 'post')
+        out << (link_to 'View', user_path(person.id), class: 'btn btn-primary btn-md')
       end
-      unless current_user.followings.pluck(:id).include?(user.id)
-        html << (link_to 'Follow', follow_user_path(user.id), class: 'btn btn-primary ', method: 'post')
-        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md')
+      unless current_user.followings.pluck(:id).include?(person.id)
+        out << (link_to 'Follow', follow_user_path(person.id), class: 'btn btn-primary ', method: 'post')
+        out << (link_to 'View', user_path(person.id), class: 'btn btn-primary btn-md')
       end
     end
-    html.html_safe
+    safe_join(out)
   end
 
   def followed_accounts(user)
-    html = ''
-    user.followers.limit(3).each do |_follower|
-      name = "#{_follower.fullname} \n"
-      html << image_tag(_follower.photo, width: '20%') if _follower.photo.attached?
-      html << simple_format(name)
-      html << (link_to 'View', user_path(_follower.id), class: 'btn btn-primary btn-md', style: 'width:100px')
+    out = []
+    user.followers.limit(3).each do |follower|
+      name = "#{follower.fullname} \n"
+      out << image_tag(follower.photo, width: '20%') if follower.photo.attached?
+      out << simple_format(name)
+      out << (link_to 'View', user_path(follower.id), class: 'btn btn-primary btn-md', style: 'width:100px')
     end
-    html.html_safe
+    safe_join(out)
   end
 end

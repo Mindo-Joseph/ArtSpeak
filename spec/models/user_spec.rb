@@ -32,12 +32,12 @@ RSpec.describe User, type: :model do
     let(:user1) { User.new(username: 'bob', fullname: 'the lego guy') }
     it 'saves user profile photo' do
       user1.save!
-      saved_file = user1.photo.attach(io: File.open('./spec/fixtures/files/user1.jpg'), filename: 'face.jpg', content_type: 'image/jpg')
+      user1.photo.attach(io: File.open('./spec/fixtures/files/user1.jpg'), filename: 'face.jpg', content_type: 'image/jpg')
       expect(user1.photo.attached?).to be true
     end
     it 'saves a user cover Image' do
       user1.save!
-      saved_file = user1.photo.attach(io: File.open('./spec/fixtures/files/cover1.jpg'), filename: 'cover.jpg', content_type: 'image/jpg')
+      user1.photo.attach(io: File.open('./spec/fixtures/files/cover1.jpg'), filename: 'cover.jpg', content_type: 'image/jpg')
       expect(user1.photo.attached?).to be true
     end
   end

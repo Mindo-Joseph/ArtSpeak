@@ -60,3 +60,7 @@ Style/HashTransformValues:
   Enabled: false
 Style/NumericLiterals:
   Enabled: false
+Rails/InverseOf: 
+  Enabled: false
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
