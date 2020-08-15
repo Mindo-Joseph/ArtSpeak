@@ -11,7 +11,7 @@ RSpec.describe 'Log In', type: :feature do
     visit root_url
     fill_in 'Username', with: user.username
     click_button 'Log in'
-    expect(page).to have_content('Joseph')
+    expect(page).to have_content(user.username.to_s)
   end
   scenario 'error message is displayed if user is not found' do
     visit root_url
