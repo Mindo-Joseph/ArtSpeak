@@ -4,11 +4,11 @@ module UsersHelper
   end
 
   def renderPhoto(user)
-    image_tag(user.photo, width: '15%', class: 'rounded-circle ') if user.photo.attached?
+    image_tag(user.photo, width: '25%', height:'25%') if user.photo.attached?
   end
 
   def renderPhotoAside(user)
-    image_tag(user.photo, width: '100%') if user.photo.attached?
+    image_tag(user.photo, width: '60%',height:'60%') if user.photo.attached?
   end
 
   def relationship_action(user)
@@ -56,15 +56,15 @@ module UsersHelper
     html = ''
     User.where.not(id: user.id).order(created_at: :desc).each do |user|
       name = "#{user.fullname} \n"
-      html << image_tag(user.photo, width: '30%') if user.photo.attached?
+      html << image_tag(user.photo, width: '150px', height:'150px') if user.photo.attached?
       html << simple_format(name)
       if current_user.followings.pluck(:id).include?(user.id)
-        html << (link_to 'Unfollow', unfollow_user_path(user.id), class: 'btn btn-danger w-50', method: 'post')
-        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md', style: 'width:100px')
+        html << (link_to 'Unfollow', unfollow_user_path(user.id), class: 'btn btn-danger', method: 'post')
+        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md')
       end
       unless current_user.followings.pluck(:id).include?(user.id)
-        html << (link_to 'Follow', follow_user_path(user.id), class: 'btn btn-primary w-50', method: 'post')
-        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md', style: 'width:100px')
+        html << (link_to 'Follow', follow_user_path(user.id), class: 'btn btn-primary ', method: 'post')
+        html << (link_to 'View', user_path(user.id), class: 'btn btn-primary btn-md')
       end
     end
     html.html_safe

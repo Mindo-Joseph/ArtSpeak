@@ -4,7 +4,7 @@ module HomepageHelper
     out = []
     if user.photo.attached?
 
-      out << image_tag(user.photo, width: '60%')
+      out << image_tag(user.photo, width: '60%', height:'100%')
       out << user.username
       out << tweet.text
     else

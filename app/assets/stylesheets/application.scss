@@ -3,6 +3,7 @@
 body {
 	font-family: 'Poppins', sans-serif;
 	background: #f4f5f7;
+	overflow-x: hidden;
 }
 p {
 	font-family: 'Poppins', sans-serif;
@@ -187,4 +188,8 @@ nav {
 			max-height: 12rem;
 		}
 	}
+}
+.btn {
+	width: 100px;
+	text-align: center;
 }
