@@ -14,7 +14,10 @@ module UsersHelper
   def relationship_action(user)
     ids = user.followers.pluck(:id)
     if user == current_user
-      link_to 'Edit Profile', edit_user_path(user.id), class: 'btn btn-primary w-50 m-2'
+      out = []
+      out << (link_to 'Edit Profile', edit_user_path(user.id), class: 'btn btn-primary mr-2')
+      out << (link_to 'Delete Account', user_path(user.id), class: 'btn btn-danger ', method: 'delete')
+      safe_join(out)
     elsif ids.include?(current_user.id)
       link_to 'Unfollow', unfollow_user_path, class: 'btn btn-primary w-50 m-2', method: 'post'
     else
