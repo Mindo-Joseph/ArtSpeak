@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'aws-sdk-s3', require: false
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'puma', '~> 4.1'

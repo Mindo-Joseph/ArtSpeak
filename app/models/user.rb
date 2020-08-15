@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following'
   has_many :followings, through: :given_follows, source: :followed_user
 
-  after_commit :add_default_cover, :add_default_photo , on: [:create, :update]
+  after_commit :add_default_cover, :add_default_photo, on: %i[create update]
   def follow(user_id)
     given_follows.create(FollowedId: user_id)
   end
@@ -20,20 +20,20 @@ class User < ApplicationRecord
   def unfollow(user_id)
     given_follows.find_by(FollowedId: user_id).destroy
   end
-  private 
+
+  private
+
   def add_default_cover
     unless coverImage.attached?
-      self.coverImage.attach(io: File.open(Rails.root.join("app", "assets", "images", "cover.webp")), filename: 'cover.webp' , content_type: "image/webp")
-      
-    end
+      coverImage.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'cover.webp')), filename: 'cover.webp', content_type: 'image/webp')
 
+    end
   end
+
   def add_default_photo
     unless photo.attached?
-      self.photo.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_profile.jpg")), filename: 'default_profile.jpg' , content_type: "image/jpg")
-      
-    end
+      photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_profile.jpg')), filename: 'default_profile.jpg', content_type: 'image/jpg')
 
+    end
   end
-  
 end

@@ -4,11 +4,11 @@ module UsersHelper
   end
 
   def renderPhoto(user)
-    image_tag(user.photo, width: '25%', height:'25%') if user.photo.attached?
+    image_tag(user.photo, width: '25%', height: '25%') if user.photo.attached?
   end
 
   def renderPhotoAside(user)
-    image_tag(user.photo, width: '60%',height:'60%') if user.photo.attached?
+    image_tag(user.photo, width: '60%', height: '60%') if user.photo.attached?
   end
 
   def relationship_action(user)
@@ -49,6 +49,7 @@ module UsersHelper
         html << (link_to 'View', user_path(person.id), class: 'btn btn-primary btn-md', style: 'width:100px')
       end
     end
+
     html.html_safe
   end
 
@@ -56,7 +57,7 @@ module UsersHelper
     html = ''
     User.where.not(id: user.id).order(created_at: :desc).each do |user|
       name = "#{user.fullname} \n"
-      html << image_tag(user.photo, width: '150px', height:'150px') if user.photo.attached?
+      html << image_tag(user.photo, width: '150px', height: '150px') if user.photo.attached?
       html << simple_format(name)
       if current_user.followings.pluck(:id).include?(user.id)
         html << (link_to 'Unfollow', unfollow_user_path(user.id), class: 'btn btn-danger', method: 'post')
@@ -80,5 +81,4 @@ module UsersHelper
     end
     html.html_safe
   end
-  
 end
