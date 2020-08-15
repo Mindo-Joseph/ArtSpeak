@@ -3,6 +3,9 @@
     <div class="navbar-header">
       <%= link_to "Home", root_path, class: "mx-2" %>
     </div>
+    <div class="logo">
+      <p>ArtSpeak</p>
+    </div>
     <% if logged_in? %>
       <ul class="nav navbar-right ">
         <li><%= link_to "Log out", logout_path, class: "mx-2", method: :delete %></li> 

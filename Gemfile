@@ -9,6 +9,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'bootstrap'
+gem 'unsplash'
 gem 'jquery-rails'
 gem 'puma', '~> 4.1'
 gem 'shoulda'

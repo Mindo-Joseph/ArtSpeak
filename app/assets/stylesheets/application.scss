@@ -9,7 +9,7 @@ p {
 	font-size: 1.1em;
 	font-weight: 300;
 	line-height: 1.7em;
-	color: #999;
+	color:#999;
 }
 a {
 	color: inherit;
@@ -29,8 +29,8 @@ a {
 #sidebar {
 	background: #213246;
     color: #fff;
-    // min-width: 250px;
-    // max-width: 250px;
+    min-width: 250px;
+    max-width: 250px;
 	min-height: 100vh;
 	margin-right: 0;
 	transition: all 0.3s;
@@ -39,6 +39,7 @@ a {
 		background: #213245;
 		.side-profile-image {
 			display: flex;
+
 			.username {
 				margin-left: 1em;
 			}
@@ -160,8 +161,30 @@ nav {
 		text-align: left;
 	}
 	a {
-		margin-bottom: 2em;
+		margin-bottom: 1em;
 		text-align: left;
+		
 	
+	}
+}
+.logo {
+	p {
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.1em;
+		font-weight: 300;
+		line-height: 1.7em;
+		color: #000;	
+	}
+}
+.art-work {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	.card {
+		width: 14rem;
+		margin-top: 2rem;
+		img {
+			max-height: 12rem;
+		}
 	}
 }

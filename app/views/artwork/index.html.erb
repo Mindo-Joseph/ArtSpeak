@@ -1,0 +1,10 @@
+<div class="art-work">
+    <%@unsplash_images.each do |image| %>
+    <div class="card" style="width: 18rem;">
+        <%= image_tag(image[:urls][:small])%>
+    </div>
+    <% end %>
+</div>
+
+    
+

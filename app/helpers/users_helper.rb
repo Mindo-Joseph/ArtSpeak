@@ -6,15 +6,18 @@ module UsersHelper
   def renderPhoto(user)
     image_tag(user.photo, width: '15%', class: 'rounded-circle ') if user.photo.attached?
   end
+  def renderPhotoAside(user)
+    image_tag(user.photo, width: '100%') if user.photo.attached?
+  end
 
   def relationship_action(user)
     ids = user.followers.pluck(:id)
     if user == current_user
-      link_to 'Edit Profile', edit_user_path(user.id)
+      link_to 'Edit Profile', edit_user_path(user.id),class:"btn btn-primary w-50 m-2"
     elsif ids.include?(current_user.id)
-      link_to 'Unfollow', unfollow_user_path, method: 'post'
+      link_to 'Unfollow', unfollow_user_path, class:"btn btn-primary w-50 m-2", method: 'post'
     else
-      link_to 'Follow', follow_user_path, method: 'post'
+      link_to 'Follow', follow_user_path,class:"btn btn-primary w-50 m-2", method: 'post'
     end
   end
 
@@ -36,11 +39,13 @@ module UsersHelper
       all_users
     else
       ids = user.followings.pluck(:id)
-      User.where.not(id: ids).limit(3).sort.reverse.each do |person|
+      ids << current_user.id
+      User.where.not(id: ids).order(created_at: :desc).limit(3).each do |person|
         name = "#{person.fullname} \n"
         html << image_tag(person.photo, width: '20%') if person.photo.attached?
         html << simple_format(name)
-        html << (link_to 'Follow', follow_user_path(person.id), method: 'post') unless current_user.followings.pluck(:id).include?(person.id)
+        html << (link_to 'Follow', follow_user_path(person.id),class:"btn btn-primary btn-md",style:"width:100px", method: 'post') unless current_user.followings.pluck(:id).include?(person.id)
+        html << (link_to 'View Profile', user_path(person.id),class:"btn btn-primary btn-md",style:"width:100px")
       end
     end
     html.html_safe
@@ -48,12 +53,12 @@ module UsersHelper
 
   def all_users
     html = ''
-    User.all.sort.reverse.each do |user|
+    User.all.order(created_at: :desc).each do |user|
       name = "#{user.fullname} \n"
       html << image_tag(user.photo, width: '30%') if user.photo.attached?
       html << simple_format(name)
-      html << (link_to 'Unfollow', unfollow_user_path(user.id), method: 'post') if current_user.followings.pluck(:id).include?(user.id)
-      html << (link_to 'Follow', follow_user_path(user.id), method: 'post') unless current_user.followings.pluck(:id).include?(user.id)
+      html << (link_to 'Unfollow', unfollow_user_path(user.id),class:"btn btn-danger w-50", method: 'post') if current_user.followings.pluck(:id).include?(user.id)
+      html << (link_to 'Follow', follow_user_path(user.id),class:"btn btn-primary w-50", method: 'post') unless current_user.followings.pluck(:id).include?(user.id)
     end
     html.html_safe
   end
