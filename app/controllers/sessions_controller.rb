@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
     if log_out
       redirect_to root_url
     else
+      flash[:alert] = 'Could not log out'
       redirect_to :back
+    end
   end
 end

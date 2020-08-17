@@ -10,25 +10,31 @@
       </ul>
     </div>
   <% end %>
+  <div class='card shadow p-3 mb-5 bg-white rounded'>
+    <div class='card-body'>
+      <h3 class='card-title'>Sign Up</h3>
+      <div class="form-group mg-4 mt-2">
+        <%= form.label :username%>
+        <%= form.text_field :username, class:"form-control" %>
+      </div>
 
-  <div class="form-group mg-4">
-    <%= form.label :username%>
-    <%= form.text_field :username, class:"form-control" %>
+      <div class="form-group">
+        <%= form.label :fullname %>
+        <%= form.text_field :fullname, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <h6>Profile picture</h6>
+        <%= form.file_field :photo, class:"form-control-file" %>
+      </div>
+      <div class="form-group">
+        <h6>Cover Image</h6>
+        <%= form.file_field :coverImage, class:"form-control-file" %>
+      </div>
+      <div class="action">
+        <%= form.submit 'Sign Up', class:'btn btn-success' %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :fullname %>
-    <%= form.text_field :fullname, class:"form-control" %>
-  </div>
-  <div class="form-group">
-    <h6>Profile picture</h6>
-    <%= form.file_field :photo, class:"form-control-file" %>
-  </div>
-  <div class="form-group">
-    <h6>Cover Image</h6>
-    <%= form.file_field :coverImage, class:"form-control-file" %>
-  </div>
-  <div class="action">
-    <%= form.submit %>
-  </div>
+  
+  
 <% end %>
