@@ -17,11 +17,9 @@ RSpec.describe Following, type: :model do
       Following.find_by(FollowerId: user1.id, FollowedId: user2.id).destroy
       expect(user2.followers.count).to eq(0)
     end
-    it 'cannot create duplicate followings' do
-      @following1 = Following.create(FollowerId: user1.id, FollowedId: user2.id)
-      @invalid_following = @following1.dup
-      try = @invalid_following.valid?
-      expect(try).to eq(false)
+    it 'increases follower count after following' do
+      Following.create(FollowerId: user1.id, FollowedId: user2.id)
+      expect(user2.followers.count).to eq(1)
     end
   end
 end

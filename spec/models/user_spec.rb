@@ -27,6 +27,10 @@ RSpec.describe User, type: :model do
       user.fullname = ''
       expect(user).to_not be_valid
     end
+    it 'should not have less than 3 characters' do
+      user.fullname = 'so'
+      expect(user).to_not be_valid
+    end
   end
   context 'with valid profile photo and cover Image' do
     let(:user1) { User.new(username: 'bob', fullname: 'the lego guy') }
