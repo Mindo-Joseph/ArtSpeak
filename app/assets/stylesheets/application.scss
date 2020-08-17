@@ -30,15 +30,18 @@ a {
 }
 #sidebar {
 	background: #213246;
-    color: #fff;
-    min-width: 250px;
-    max-width: 250px;
+    color: #ffffff;
+    min-width: 180px;
+    max-width: 180px;
 	min-height: 100vh;
 	margin-right: 0;
 	transition: all 0.3s;
 	.sidebar-header {
 		padding: 20px;
 		background: #213245;
+		.col-6 {
+			max-width:80%;
+		}
 		.side-profile-image {
 			display: flex;
 
@@ -54,7 +57,7 @@ a {
 			.following-count, .followers-count {
 				display: flex;
 				flex-direction: column;
-				padding-right: 2em;
+				padding-right: 1em;
 				
 				p {
 					font-size: 15px;
