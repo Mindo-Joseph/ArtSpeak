@@ -11,3 +11,15 @@ form {
         padding: 1em;
     }
 }
+.users-page {
+	display: flex;
+	flex-direction: column;
+	padding-left: 3em;
+	padding-top: 2em;
+	p {
+		margin-bottom: 0;
+	}
+	a {
+		margin-bottom: 0.8em;
+	}
+}

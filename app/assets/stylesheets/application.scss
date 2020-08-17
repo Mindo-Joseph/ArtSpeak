@@ -115,70 +115,13 @@ nav {
 	
 	
 }
-.tweets-display {
-	display: grid;
-	grid-template-columns: 20% 80%;
-	grid-template-rows: repeat(2,40px);
 
-	:first-child {
-		display: grid;
-		grid-column: 1/2;
-		grid-row: 1/-1;
-		margin: 2%;
-		
-	}
-	:nth-child(2n+0) {
-		display: grid;
-		grid-column: 2/-1;
-		grid-row: 1/2;
-		text-align: left;
-		font-size: larger;
-		font-weight: 800;
-		
-		
-	}
-	:nth-child(3n+0){
-		display: grid;
-		grid-column: 2/-1;
-		grid-row: 2/-1;
-		text-align: left;
-		font-size: medium;
-		
-	}
-	
-}
 .follow-display {
 	display: flex;
 	
 }
-.users-page {
-	display: flex;
-	flex-direction: column;
-	padding-left: 3em;
-	padding-top: 2em;
-	p {
-		margin-bottom: 0;
-	}
-	a {
-		margin-bottom: 0.8em;
-	}
-}
-.who-to-follow {
-	display: flex;
-	flex-direction: column;
-	padding-left: 1em;
-	padding-top: 0.5em;
-	p {
-		margin-bottom: 0;
-		text-align: left;
-	}
-	a {
-		margin-bottom: 0.31em;
-		text-align: left;
-		
-	
-	}
-}
+
+
 .logo {
 	p {
 		font-family: 'Poppins', sans-serif;
@@ -188,18 +131,7 @@ nav {
 		color: #000;	
 	}
 }
-.art-work {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-evenly;
-	.card {
-		width: 14rem;
-		margin-top: 2rem;
-		img {
-			max-height: 12rem;
-		}
-	}
-}
+
 .btn {
 	width: 100px;
 	text-align: center;
