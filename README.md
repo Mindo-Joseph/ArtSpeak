@@ -25,12 +25,17 @@ You need to have this app or tools to start using it:
 * Open terminal```cd``` to the cloned folder and install gems with ```bundle install```
 * Checkout to the development branch by ```git checkout development```
 * Follow the instructions [here](https://edgeguides.rubyonrails.org/active_storage_overview.html) to setup ActiveStorage
+* create the database by ```bin/rails db:create```
 * run migrations ```bin/rails db:migrate```
-* Run rails console ```bin/rails console```
+* Run rails server ```bin/rails server```
 
 ### Usage
 
 Once you have started the server, visit the browser at `http://127.0.0.1:3000/`  
+
+### Tests
+To run tests, open your terminal, ```cd``` into the project folder and run
+```rspec spec/```
 
 ### Live version
 [Live](https://fast-shore-77542.herokuapp.com/)
