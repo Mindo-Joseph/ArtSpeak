@@ -17,6 +17,16 @@ class OpinionsController < ApplicationController
 
     end
   end
+  def destroy
+    @opinion = Opinion.find_by(user_id: current_user.id)
+    if @opinion.destroy
+      flash[:alert] = 'Tweet deleted'
+      redirect_to users_path(current_user.id)
+    else
+      flash[:alert] = 'Could not delete tweet'
+      redirect_to :back
+    end
+  end
 
   private
 

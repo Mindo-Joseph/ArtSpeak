@@ -51,9 +51,13 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    flash[:alert] = 'Account Deleted'
-    redirect_to root_path
+    if @user.destroy
+      flash[:alert] = 'Account Deleted'
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
+
   end
 
   private

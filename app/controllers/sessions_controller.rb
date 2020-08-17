@@ -13,7 +13,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-    redirect_to root_url
+
+    if log_out
+      redirect_to root_url
+    else
+      redirect_to :back
   end
 end
