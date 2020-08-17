@@ -1,7 +1,7 @@
 # disable Rails/UniqueValidationWithoutIndex
 class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 3, maximum: 20 }, uniqueness: true
-  validates :fullname, presence: true
+  validates :fullname, presence: true, length: { minimum: 3, maximum: 40}
   has_one_attached :photo
   has_one_attached :coverImage
   has_many :opinions, dependent: :destroy
