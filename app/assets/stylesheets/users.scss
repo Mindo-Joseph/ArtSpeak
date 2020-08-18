@@ -1,15 +1,18 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-form {
-    display: grid;
-    grid-column: 2/4;
-    grid-row: 2/-1;
-    div {
-        display: flex;
-        justify-content: center;
-        padding: 1em;
-    }
+.who-to-follow {
+	display: flex;
+	flex-direction: column;
+	padding-left: 1em;
+	padding-top: 0.5em;
+	p {
+		margin-bottom: 0;
+		text-align: left;
+	}
+	a {
+		margin-bottom: 0.31em;
+		text-align: left;
+		
+	
+	}
 }
 .users-page {
 	display: flex;
@@ -22,4 +25,8 @@ form {
 	a {
 		margin-bottom: 0.8em;
 	}
+}
+.follow-display {
+	display: flex;
+	
 }

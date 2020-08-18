@@ -18,8 +18,7 @@
 		grid-column: 2/-1;
 		grid-row: 1/2;
 		text-align: left;
-		font-size: larger;
-		font-weight: 800;
+		font-weight: bold;
 		
 		
 	}
@@ -27,25 +26,9 @@
 		display: grid;
 		grid-column: 2/-1;
 		grid-row: 2/-1;
-		text-align: left;
+		text-align: initial;
 		font-size: medium;
 		
 	}
 	
-}
-.who-to-follow {
-	display: flex;
-	flex-direction: column;
-	padding-left: 1em;
-	padding-top: 0.5em;
-	p {
-		margin-bottom: 0;
-		text-align: left;
-	}
-	a {
-		margin-bottom: 0.31em;
-		text-align: left;
-		
-	
-	}
 }

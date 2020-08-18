@@ -8,7 +8,7 @@ module UsersHelper
   end
 
   def render_photo_aside(user)
-    image_tag(user.photo, width: '60%', height: '60%') if user.photo.attached?
+    image_tag(user.photo, width: '80%', height: '80%') if user.photo.attached?
   end
 
   def relationship_action(user)
