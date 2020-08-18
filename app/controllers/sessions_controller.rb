@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
     if log_out
       redirect_to root_url
     else

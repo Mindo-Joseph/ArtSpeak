@@ -17,6 +17,7 @@ class OpinionsController < ApplicationController
 
     end
   end
+
   def destroy
     @opinion = Opinion.find_by(user_id: current_user.id)
     if @opinion.destroy

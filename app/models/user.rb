@@ -1,15 +1,13 @@
-
 class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 3, maximum: 20 }, uniqueness: true
-  validates :fullname, presence: true, length: { minimum: 3, maximum: 40}
+  validates :fullname, presence: true, length: { minimum: 3, maximum: 40 }
   has_one_attached :photo
   has_one_attached :coverImage
   has_many :opinions, dependent: :destroy
-  
+
   has_many :received_follows, foreign_key: :FollowedId, class_name: 'Following', dependent: :destroy
   has_many :followers, through: :received_follows, source: :follower
 
-  
   has_many :given_follows, foreign_key: :FollowerId, class_name: 'Following', dependent: :destroy
   has_many :followings, through: :given_follows, source: :followed_user
 
@@ -36,4 +34,3 @@ class User < ApplicationRecord
     photo.attach(io: File.open(Rails.root.join('app/assets/images/default_profile.jpg')), filename: 'default_profile.jpg', content_type: 'image/jpg')
   end
 end
-
