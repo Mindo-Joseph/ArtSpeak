@@ -1,0 +1,35 @@
+<%= render 'shared/sidebar'%>
+<div class="row w-100 text-center text-uppercase">
+    <div class="col-9 border-right">
+        <div class="w-100 border-bottom">
+            <p>Tweets</p>
+        </div>
+        <div class="card ml-5 h-5 mt-5">
+            <div class="card-body">
+                <h5 class="card-title text-left">Tweet something </h5>
+                <%= render 'shared/opinion_form'%>
+            </div>
+        </div>
+
+        <div class="card ml-5 h-5 mt-5">
+            <div class="card-body">
+                <h5 class="card-title text-left">New tweets</h5>
+                <% @opinions.each do |opinion|%>
+                <div class="tweets-display card mb-3">
+                    <%= tweets_info(opinion)%>
+                </div>
+
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-3 text-center text-uppercase">
+     <div class="w-100 border-bottom">
+            <p>who to follow</p>
+            <%= render 'shared/follow'%>
+        </div>
+    </div>
+    
+    
+</div>

@@ -1,0 +1,130 @@
+@import "bootstrap";
+@import "homepage.scss";
+@import "users.scss";
+@import "artwork.scss";
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700);
+body {
+	font-family: 'Poppins', sans-serif;
+	background: #f4f5f7;
+	overflow-x: hidden;
+}
+p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.1em;
+	font-weight: 300;
+	line-height: 1.7em;
+	color:#999;
+
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.3s;
+	&:hover {
+		color: inherit;
+		text-decoration: none;
+		transition: all 0.3s;
+	}
+	&:focus {
+		color: inherit;
+		text-decoration: none;
+		transition: all 0.3s;
+	}
+}
+#sidebar {
+	background: #213246;
+    color: #fff;
+    min-width: 190px;
+    max-width: 190px;
+	min-height: 100vh;
+	margin-right: 0;
+	transition: all 0.3s;
+	.sidebar-header {
+		padding: 20px;
+		background: #213245;
+		.side-profile-image {
+			display: flex;
+			width: fit-content;
+
+			.username {
+				display: flex;
+				flex-flow: row wrap;
+				margin-left: 1em;
+			}
+		}
+		.follow-statistics {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 2em;
+
+			.following-count, .followers-count {
+				display: flex;
+				flex-direction: column;
+				padding-right: 1em;
+				
+				p {
+					font-size: 15px;
+				}
+			}
+		}
+	}
+	ul.components {
+		padding: 20px 0;
+		border-bottom: 1px solid #47748b;
+	}
+	ul {
+		p {
+			color: #fff;
+			padding: 10px;
+		}
+		li {
+			a {
+				padding: 10px;
+				font-size: 1.1em;
+				display: block;
+				&:hover {
+					color: #7386D5;
+					background: #fff;
+				}
+			}
+		}
+	}
+}
+nav {
+	background-color: #56abec;
+}
+.container {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	@media(min-width: 768px){
+		max-width:100%;
+	}
+	.specific-details {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.user-profiles {
+		display: flex;
+	}
+	
+	
+}
+
+
+
+.logo {
+	p {
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.1em;
+		font-weight: 300;
+		line-height: 1.7em;
+		color: #000;	
+	}
+}
+
+.btn {
+	width: 100px;
+	text-align: center;
+}

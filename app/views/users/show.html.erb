@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'shared/sidebar'%>
+<div class="row w-100 text-center text-uppercase">
+  <div class="col-8 border-right">
+    <div class="image">
+      <%= render_cover_image(@user)%>
+      
+    </div>
+    <div class="w-100 border-bottom">
+      <p>Tweets</p>
+    </div>
+    <div class="card ml-5 h-5 mt-5">
+        <div class="card-body">
+          <h5 class="card-title text-left">Tweets</h5>
+         <% @opinions.each do |opinion|%>
+            <div class="tweets-display card mb-3">
+              <%= tweets_info(opinion)%>
+            </div>
+         <% end %>
+                
+        </div>
+    </div>
+  </div>
+  <div class="col-4 text-center text-uppercase">
+    <div class="w-100 border-bottom">
+      <p>Profile</p>
+      <%= render "shared/profile_details"%>
+      <%= relationship_action(@user)%>
+      
+    </div>
+    <h5>Followed by </h5>
+      <div class='who-to-follow'>
+          <%= followed_accounts(@user) %>
+      </div>
+  </div>
+</div>

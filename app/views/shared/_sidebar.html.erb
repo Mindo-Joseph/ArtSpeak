@@ -1,0 +1,25 @@
+<div id='sidebar'>
+    <div class="sidebar-header col-6 ">
+        <div class="side-profile-image">
+            <%= render_photo_aside(current_user)%>
+            <p class="username"><%= current_user.fullname %></p>
+        </div>
+        <div class="follow-statistics">
+            <div class="following-count">
+                <h3><%= following_count(current_user)%></h3>
+                <p>Following<p>
+            </div>
+            <div class="followers-count">
+                <h3><%= followers_count(current_user)%></h3>
+                <p>Followers<p>
+            </div>
+        </div>
+
+    </div>
+    <ul class="list-unstyled components">
+        <li><%= link_to "Connect", users_path %></li>
+        <li><%= link_to "Art work", artwork_index_path %></li>
+        <li><%= link_to "Profile", user_path(current_user) %></li>
+
+    </ul>
+</div>

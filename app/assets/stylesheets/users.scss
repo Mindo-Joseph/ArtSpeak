@@ -1,0 +1,32 @@
+.who-to-follow {
+	display: flex;
+	flex-direction: column;
+	padding-left: 1em;
+	padding-top: 0.5em;
+	p {
+		margin-bottom: 0;
+		text-align: left;
+	}
+	a {
+		margin-bottom: 0.31em;
+		text-align: left;
+		
+	
+	}
+}
+.users-page {
+	display: flex;
+	flex-direction: column;
+	padding-left: 3em;
+	padding-top: 2em;
+	p {
+		margin-bottom: 0;
+	}
+	a {
+		margin-bottom: 0.8em;
+	}
+}
+.follow-display {
+	display: flex;
+	
+}

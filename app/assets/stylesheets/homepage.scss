@@ -1,0 +1,34 @@
+// Place all the styles related to the Homepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.tweets-display {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-template-rows: repeat(2,40px);
+
+	:first-child {
+		display: grid;
+		grid-column: 1/2;
+		grid-row: 1/-1;
+		margin: 2%;
+		
+	}
+	:nth-child(2n+0) {
+		display: grid;
+		grid-column: 2/-1;
+		grid-row: 1/2;
+		text-align: left;
+		font-weight: bold;
+		
+		
+	}
+	:nth-child(3n+0){
+		display: grid;
+		grid-column: 2/-1;
+		grid-row: 2/-1;
+		text-align: initial;
+		font-size: medium;
+		
+	}
+	
+}
