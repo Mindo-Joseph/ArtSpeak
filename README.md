@@ -38,7 +38,7 @@ To run tests, open your terminal, ```cd``` into the project folder and run
 ```rspec spec/```
 
 ### Live version
-[Live](https://fast-shore-77542.herokuapp.com/)
+[Live](https://infinite-shore-55950.herokuapp.com/login)
 
 ### Screenshots:
 
